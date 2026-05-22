@@ -1,0 +1,1 @@
+# society-ai-skills
