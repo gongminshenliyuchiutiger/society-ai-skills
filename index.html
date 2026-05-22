@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 瀏覽器標題 -->
+    <title>社會領域素養導向教案撰寫AI Skills神導入教學系統</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #1a2a6c;
+            --secondary-color: #b21f1f;
+            --accent-color: #fdbb2d;
+            --neon-color: #00f2ff;
+            --bg-light: #f4f7f6;
+            --text-dark: #2d3436;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* 導覽與標題 */
+        header {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1100px;
+            margin: -3rem auto 3rem;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 什麼是 Skill 區塊 */
+        .skill-intro {
+            background: #fffdf5;
+            border-left: 8px solid var(--accent-color);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-box {
+            padding: 1.5rem;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+        }
+
+        .skill-box h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+
+        /* 下載區塊 */
+        .download-zone {
+            text-align: center;
+            background: linear-gradient(45deg, #2c3e50, #4ca1af);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent-color);
+            color: #1a2a6c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(253, 187, 45, 0.4);
+        }
+
+        .btn-download:hover {
+            transform: scale(1.05);
+            background-color: white;
+            box-shadow: 0 6px 20px rgba(253, 187, 45, 0.6);
+        }
+
+        /* 吉祥物樣式與動畫 */
+        #mascot-container {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 140px;
+            cursor: grab;
+            z-index: 9999;
+            user-select: none;
+            touch-action: none;
+        }
+
+        #mascot-container img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+            transition: filter 0.3s;
+        }
+
+        /* 懸停效果：霓虹發光與抖動 */
+        #mascot-container:hover img {
+            filter: drop-shadow(0 0 10px var(--neon-color)) 
+                    drop-shadow(0 0 20px #ff00de)
+                    drop-shadow(0 0 30px #4ef21b);
+            animation: neonShake 0.15s infinite ease-in-out;
+        }
+
+        @keyframes neonShake {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-3px, 3px) rotate(-3deg); }
+            50% { transform: translate(3px, -3px) rotate(3deg); }
+            75% { transform: translate(-3px, -3px) rotate(-1.5deg); }
+            100% { transform: translate(3px, 3px) rotate(1.5deg); }
+        }
+
+        /* 頁尾 */
+        footer {
+            background: #1a1a1a;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .fb-icon {
+            font-size: 2.5rem;
+            color: #1877F2;
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .fb-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .fb-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .fb-text a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* 列表樣式 */
+        ul.custom-list {
+            list-style: none;
+            padding: 0;
+        }
+        ul.custom-list li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        ul.custom-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 頁頭標題 -->
+    <header>
+        <h1>社會領域素養導向教案撰寫AI Skills神導入教學系統</h1>
+        <p><i class="fas fa-microchip"></i> 賦予教師數位靈魂，讓教案撰寫不再是負擔</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- 深度介紹：什麼是 Skill -->
+        <section class="section skill-intro">
+            <h2><i class="fas fa-bolt"></i> 核心概念：什麼是 AI Skill？</h2>
+            <p>在「神導入教學系統」中，所謂的 <strong>Skill (技能)</strong>，不僅僅是操作軟體的能力，而是一種<strong>「與人工智慧深度協作的翻譯能力」</strong>。教師將抽象的教育哲學，透過特定的邏輯架構，轉化為 AI 能理解並精準執行的指令。</p>
+            
+            <div class="skill-grid">
+                <div class="skill-box">
+                    <h3><i class="fas fa-terminal"></i> Prompting (提示詞技能)</h3>
+                    <p>學習如何下達精確指令，包含：角色設定、目標定義、限制條件與輸出格式。</p>
+                </div>
+                <div class="skill-box">
+                    <h3><i class="fas fa-layer-group"></i> Decomposition (任務拆解)</h3>
+                    <p>將複雜的「素養教案」拆解成單元目標、情境創設、評量規準等細小數位任務。</p>
+                </div>
+                <div class="skill-box">
+                    <h3><i class="fas fa-sync-alt"></i> Iteration (迭代校準)</h3>
+                    <p>辨識 AI 輸出的幻覺(Hallucination)，並透過連續對話修正結果，使其符合領綱需求。</p>
+                </div>
+                <div class="skill-box">
+                    <h3><i class="fas fa-shield-halved"></i> Critical Literacy (批判素養)</h3>
+                    <p>最終的把關者永遠是教師。判斷 AI 生成內容是否符合社會領域的價值觀與在地性。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 系統特色 -->
+        <section class="section">
+            <h2><i class="fas fa-graduation-cap"></i> 系統教學特色</h2>
+            <ul class="custom-list">
+                <li><strong>社會領域專精：</strong> 內建公民、歷史、地理領域核心素養指標庫。</li>
+                <li><strong>情境模擬引擎：</strong> 自動生成符合全球議題（SDGs）與在地情境的教學活動。</li>
+                <li><strong>高效率結構：</strong> 從 0 到完成一份完整的素養教案，僅需傳統作業 1/5 的時間。</li>
+                <li><strong>AI Skills 養成：</strong> 透過內建模板，讓老師在使用過程中自然學會提示詞工程。</li>
+            </ul>
+        </section>
+
+        <!-- 下載區塊 -->
+        <section class="section download-zone" style="border-radius: 20px;">
+            <h2><i class="fas fa-file-markdown"></i> 實作範例下載</h2>
+            <p>想要親自體驗 AI 如何生成素養教案嗎？點擊下方按鈕下載社會領域 AI 教案範例檔 (Markdown 格式)。</p>
+            <a href="example/society-ai.md" download class="btn-download">
+                <i class="fas fa-cloud-download-alt"></i> 立即下載社會領域範例檔
+            </a>
+            <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.8;">註：下載後可用 Notepad++ 或任何 Markdown 編輯器開啟</p>
+        </section>
+
+    </div>
+
+    <!-- 吉祥物：LiyuChillGuy -->
+    <div id="mascot-container" title="我是吉祥物！拖動我到處走走吧！">
+        <!-- 如果圖片不存在，會顯示 Font Awesome 的圖示作為備援 -->
+        <img src="image/LiyuChillGuy.svg" alt="LiyuChillGuy Mascot" onerror="this.style.display='none'; document.getElementById('fallback-icon').style.display='block';">
+        <i id="fallback-icon" class="fas fa-cat" style="display:none; font-size: 80px; color: #fdbb2d;"></i>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="footer-content">
+            <a href="https://www.facebook.com/happyliyuchilltiger/" target="_blank" class="fb-icon">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <div class="fb-text">
+                <a href="https://www.facebook.com/happyliyuchilltiger/" target="_blank">快樂鯉魚秋老虎</a>
+            </div>
+            <div class="copyright">
+                Copyright © Liyuchiutiger Gongminshen
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript: 吉祥物拖曳邏輯 -->
+    <script>
+        const mascot = document.getElementById('mascot-container');
+        let isDragging = false;
+        let startX, startY;
+
+        // 滑鼠點下
+        mascot.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            mascot.style.cursor = 'grabbing';
+            startX = e.clientX - mascot.offsetLeft;
+            startY = e.clientY - mascot.offsetTop;
+            e.preventDefault();
+        });
+
+        // 滑鼠移動
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            let x = e.clientX - startX;
+            let y = e.clientY - startY;
+            
+            // 限制邊界
+            const maxX = window.innerWidth - mascot.offsetWidth;
+            const maxY = window.innerHeight - mascot.offsetHeight;
+            x = Math.max(0, Math.min(x, maxX));
+            y = Math.max(0, Math.min(y, maxY));
+
+            mascot.style.left = x + 'px';
+            mascot.style.top = y + 'px';
+            mascot.style.bottom = 'auto'; // 解除原本 css 的 bottom: 30px
+        });
+
+        // 滑鼠放開
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            mascot.style.cursor = 'grab';
+        });
+
+        // 觸控支援 (手機)
+        mascot.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            let touch = e.touches[0];
+            startX = touch.clientX - mascot.offsetLeft;
+            startY = touch.clientY - mascot.offsetTop;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            let touch = e.touches[0];
+            let x = touch.clientX - startX;
+            let y = touch.clientY - startY;
+            mascot.style.left = x + 'px';
+            mascot.style.top = y + 'px';
+            mascot.style.bottom = 'auto';
+        }, { passive: false });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+    </script>
+</body>
+</html>
